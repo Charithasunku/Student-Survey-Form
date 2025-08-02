@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Student Survey</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #e0ebe6;
+            --text-color: #34495e;
+            --border-color: #bdc3c7;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgb(244, 247, 247);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .question p {
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: white;
+            font-size: 16px;
+        }
+
+        input[type="submit"],
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto 0;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .review-container {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .review-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .question {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Satisfactory Survey Form</h1>
+        <form id="surveyForm">
+            <div class="question">
+                <p>Name:</p>
+                <input type="text" name="name" placeholder="Enter your name:" required>
+            </div>
+            <div class="question">
+                <p>Email:</p>
+                <input type="text" name="email" placeholder="Enter your email address: " required>
+            </div>
+
+            <div class="question">
+                <p>Department:</p>
+                <select name="department" required>
+                    <option value="">Select your department</option>
+                    <option value="btech">B.Tech</option>
+                    <option value="mtech">M.Tech</option>
+                    <option value="bba">BBA</option>
+                    <option value="mba">MBA</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>Year of Course:</p>
+                <select name="yearOfCourse" required>
+                    <option value="">Select your year</option>
+                    <option value="1st">1st Year</option>
+                    <option value="2nd">2nd Year</option>
+                    <option value="3rd">3rd Year</option>
+                    <option value="4th">4th Year</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>1. Will you recommend this college to others?</p>
+                <label><input type="radio" name="recommend" value="yes" required> Yes</label>
+                <label><input type="radio" name="recommend" value="no"> No</label>
+            </div>
+
+            <div class="question">
+                <p>2. Are you satisfied with the teaching staff and their teaching methods?</p>
+                <select name="teachingStaff" required>
+                    <option value="">Select an option</option>
+                    <option value="extremelySatisfied">Extremely satisfied</option>
+                    <option value="verySatisfied">Very satisfied</option>
+                    <option value="satisfied">Satisfied</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="dissatisfied">Dissatisfied</option>
+                    <option value="veryDissatisfied">Very dissatisfied</option>
+                    <option value="extremelyDissatisfied">Extremely dissatisfied</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>3. How satisfied are you with the facilities provided by the college?</p>
+                <select name="facilities" required>
+                    <option value="">Select an option</option>
+                    <option value="extremelySatisfied">Extremely satisfied</option>
+                    <option value="verySatisfied">Very satisfied</option>
+                    <option value="satisfied">Satisfied</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="dissatisfied">Dissatisfied</option>
+                    <option value="veryDissatisfied">Very dissatisfied</option>
+                    <option value="extremelyDissatisfied">Extremely dissatisfied</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>4. Is it easy to obtain the necessary resources from the college library?</p>
+                <label><input type="radio" name="library" value="yes" required> Yes</label>
+                <label><input type="radio" name="library" value="no"> No</label>
+            </div>
+
+            <div class="question">
+                <p>5. Do you feel it is easier to register for different courses within the college?</p>
+                <select name="courseRegistration" required>
+                    <option value="">Select an option</option>
+                    <option value="extremelySatisfied">Extremely satisfied</option>
+                    <option value="verySatisfied">Very satisfied</option>
+                    <option value="satisfied">Satisfied</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="dissatisfied">Dissatisfied</option>
+                    <option value="veryDissatisfied">Very dissatisfied</option>
+                    <option value="extremelyDissatisfied">Extremely dissatisfied</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>6. How satisfied are you with the cleanliness and variety of food items available in the cafeteria?</p>
+                <select name="cafeteria" required>
+                    <option value="">Select an option</option>
+                    <option value="extremelySatisfied">Extremely satisfied</option>
+                    <option value="verySatisfied">Very satisfied</option>
+                    <option value="satisfied">Satisfied</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="dissatisfied">Dissatisfied</option>
+                    <option value="veryDissatisfied">Very dissatisfied</option>
+                    <option value="extremelyDissatisfied">Extremely dissatisfied</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>7. How supportive were the faculty members?</p>
+                <select name="facultySupport" required>
+                    <option value="">Select an option</option>
+                    <option value="extremelySupportive">Extremely supportive</option>
+                    <option value="verySupportive">Very supportive</option>
+                    <option value="supportive">Supportive</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="unsupportive">Unsupportive</option>
+                    <option value="veryUnsupportive">Very unsupportive</option>
+                    <option value="extremelyUnsupportive">Extremely unsupportive</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>8.What are your views on the extra-curricular activities carried out in this college?</p>
+                <select name="activities" required>
+                    <option value="">Select an option</option>
+                    <option value="few">They are too few </option>
+                    <option value="right">They are just right</option>
+                    <option value="alot">I was overwhelmed by the number</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>9. Do you think faculty and support staff at the college were helpful?</p>
+                <select name="staffHelpfulness" required>
+                    <option value="">Select an option</option>
+                    <option value="veryHelpful">Very helpful</option>
+                    <option value="helpful">Helpful</option>
+                    <option value="neutral">Neither helpful nor unhelpful</option>
+                    <option value="unhelpful">Unhelpful</option>
+                    <option value="veryUnhelpful">Very unhelpful</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>10.What is your overall experience with the college? </p>
+                      <select name="exp" required>
+                    <option value="">Select an option</option>
+                    <option value="extremelyLikely">Extremely likely</option>
+                    <option value="veryLikely">Very likely</option>
+                    <option value="somewhatLikely">Somewhat likely</option>
+                    <option value="notSoLikely">Not so likely</option>
+                    <option value="notAtAllLikely">Not at all likely</option>
+                </select>
+            </div>
+
+
+            <input type="submit" value="Submit Survey">
+        </form>
+
+        <div class="review-container" id="reviewSection">
+            <h2>Review Your Responses</h2>
+            <div id="reviewContent"></div>
+            <button id="editButton">Edit</button>
+            <button id="finalSubmitButton">Final Submit</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('surveyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formElements = this.elements;
+            let formData = {};
+            let reviewContent = '';
+
+            // Validate and process form data
+            for (let i = 0; i < formElements.length; i++) {
+                if (formElements[i].type !== "submit") {
+                    if (!formElements[i].value) {
+                        alert('Please answer all questions before submitting.');
+                        return;
+                    }
+                    formData[formElements[i].name] = formElements[i].value;
+                    reviewContent += `<p><strong>${formElements[i].name}:</strong> ${formElements[i].value}</p>`;
+                }
+            }
+
+            // Show review section with collected data
+            document.getElementById('reviewContent').innerHTML = reviewContent;
+            document.getElementById('reviewSection').style.display = 'block';
+            document.getElementById('surveyForm').style.display = 'none';
+        });
+
+        // Handle edit button
+        document.getElementById('editButton').addEventListener('click', function() {
+            document.getElementById('surveyForm').style.display = 'block';
+            document.getElementById('reviewSection').style.display = 'none';
+        });
+
+        // Handle final submit button
+        document.getElementById('finalSubmitButton').addEventListener('click', function() {
+            alert('Thank you for completing the survey!');
+            document.getElementById('surveyForm').reset();
+            document.getElementById('surveyForm').style.display = 'block';
+            document.getElementById('reviewSection').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
